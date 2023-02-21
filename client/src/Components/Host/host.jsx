@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Details, Chevrolet, Fiat, Fort, Honda } from "./Details";
 import { Sai, Vanshika, Rahul } from "./video";
-import HomeNavbar from "../Components-Navbar/HostNavbar";
+import HomeNavbar from "../Components-Navbar/HomeNavbar";
 import Footer from "../Footer/Footer";
 
 import "./Host.css";

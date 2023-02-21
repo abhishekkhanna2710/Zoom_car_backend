@@ -5,13 +5,14 @@ import "../login/styles.css"
 
 
 function LogInFirst() {
+    const [error, setError] = useState("");
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
     const [username, setUsername] = useState('');
 
     useEffect(() => {
         const getUsername = async () => {
-            const response = await fetch('/signin', {
+            const response = await fetch('/login', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,6 +25,7 @@ function LogInFirst() {
                 const data = await response.json();
                 setUsername(data.username);
                 console.log(data.username)
+
             }
         };
         getUsername();
@@ -33,7 +35,7 @@ function LogInFirst() {
         console.log("first")
         e.preventDefault();
 
-        const res = await fetch('/signin', {
+        const res = await fetch('/login', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -43,14 +45,23 @@ function LogInFirst() {
             })
         })
 
+
         // username= 'abhiushel'
         const data = res.json();
 
         if (res.status === 400 || !data) {
             window.alert("Invalid credentails");
-        } else {
+        }
+       
+
+        else if (res.status === 402) {
+            setError("User Not found");
+        }
+
+        else {
             window.alert('Registration Sucessfull');
-            localStorage.setItem("loggedInUser", JSON.stringify({ name: "Abhishek" }));
+
+            // localStorage.setItem("loggedInUser", JSON.stringify({ name: "Abhishek" }));
             window.location.href = '/';
 
         }
@@ -72,7 +83,7 @@ function LogInFirst() {
 
 
                                 <input type="password" className="menuInputItems" name="password" placeholder="Enter your password" value={password} onChange={(e) => setpassword(e.target.value)} />
-
+                                {error && <div className='err_msg'>{error}</div>}
 
                                 <input className='logButton' type="submit" value="Login" name='signup' onClick={loginUser} />
                             </div>

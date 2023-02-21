@@ -1,18 +1,19 @@
 const express = require("express");
 const router = new express.Router();
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken')
+
 
 const User = require("../models/userSchema")
+const Cars = require("../models/dataSchema")
 
 
 router.get("/", (req, res) => {
-    res.send("Hi Backend project reloading 2.0.....");
+    res.send("Hi my project project reloading 2.0.....");
 })
 
-router.post("/register", async (req, res) => {
-    // console.log(req.body)
-    // res.json({ message: req.body })
+/****************   Old registeration of thapa ****************/
+
+router.post("/signup", async (req, res) => {
 
     const { name, email, password, cpassword } = req.body;
 
@@ -27,7 +28,7 @@ router.post("/register", async (req, res) => {
         if (userExist) {
             return res.status(422).json({ error: "Email already Exists" })
         } else if (password != cpassword) {
-            return res.status(422).json({ error: "Password is not matching" })
+            return res.status(423).json({ error: "Password is not matching" })
 
         } else {
             const user = new User({ name, email, password, cpassword })
@@ -41,25 +42,18 @@ router.post("/register", async (req, res) => {
         console.log(error)
     }
 
-
-
-    // try {
-
-    //     const userdata = new User(req.body)
-    //     const createUser = await userdata.save();
-
-
-    //     res.status(201).send(createUser)
-    // } catch (error) {
-    //     res.status(400).send(error)
-    // }
-
 })
+
+
+
+
+
+
 
 
 // **********Login Route**************
 
-router.post("/signin", async (req, res) => {
+router.post("/login", async (req, res) => {
     // console.log(req.body)
     // res.json({message: "awesome"})
 
@@ -72,6 +66,9 @@ router.post("/signin", async (req, res) => {
         }
 
         const userLogin = await User.findOne({ email: email });
+        if (!userLogin) {
+            return res.status(402).json({ error: "User Not found" })
+        }
 
         console.log(userLogin)
 
@@ -101,6 +98,39 @@ router.post("/signin", async (req, res) => {
     }
 })
 
+
+//***********POST API DATA****************************************/
+
+
+router.post("/BookingCars", async (req, res) => {
+    const carsArray = req.body;
+
+    try {
+        for (const car of carsArray) {
+            const { image_url, name, price, trans, fuel, seat, Mileage, rating } = car;
+            const data = new Cars({ image_url, name, price, trans, fuel, seat, Mileage, rating });
+            await data.save();
+        }
+
+        return res.status(200).send({ message: "Cars saved successfully" });
+    } catch (error) {
+        console.log(error);
+    }
+})
+
+
+// Getting all the car data
+
+router.get("/BookingCars", async (req, res) => {
+    try {
+
+        const cars = await Cars.find();
+        return res.status(200).send(cars);
+
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 module.exports = router;

@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import { useEffect, useState } from 'react'
 import Car_products from '../Carproucts/Car_products';
 import Filter from '../Filters/Filter';
@@ -13,13 +14,22 @@ function Bookcar() {
     const [isLoading, setIsLoading] = useState(true);
 
 
+
     const getData = async () => {
-        let url = (`https://car-api3-0.onrender.com/carData`)
-        let res = await fetch(url);
-        let car_data = await res.json();
-        console.log(car_data);
-        setData(car_data);
-        setIsLoading(false);
+        // let url = (`https://car-api3-0.onrender.com/carData`)
+        // let res = await fetch(url);
+        // let car_data = await res.json();
+        // console.log(car_data);
+        // setData(car_data);
+        // setIsLoading(false);
+        try {
+            let res = await axios.get('/BookingCars');
+            console.log(res.data)
+            setData(res.data);
+            setIsLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const handleFilteredData = (data) => {

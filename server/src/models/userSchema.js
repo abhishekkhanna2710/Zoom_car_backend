@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs');
 
+
 const userSchemna = new mongoose.Schema({
     name: {
         type: String,
@@ -54,7 +55,41 @@ userSchemna.methods.generateAuthToken = async function () {
 }
 
 
-// collection creation
+// //collection creation
 const User = mongoose.model("UserData", userSchemna)
 
+
+// const validate = (data) => {
+//     const schema = Joi.object({
+//         name: Joi.string().required().label("User Name"),
+//         email: Joi.string().email().required().label("Email"),
+//         password: passwordComplexity().required().label("Password"),
+//         cpassword: passwordComplexity().required().label("Confirm Password")
+
+//     })
+
+//     return schema.validate(data);
+// }
+
 module.exports = User;
+
+
+
+
+const auth = async (req, res, next) => {
+    try {
+        const token = req.header('Authorization').replace('Bearer ', '');
+        const decoded = jwt.verify(token, 'deijhdiehndkiehndkendkndkdhn');
+        const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
+
+        if (!user) {
+            throw new Error();
+        }
+
+        req.user = user;
+        req.token = token;
+        next();
+    } catch (e) {
+        res.status(401).send({ error: 'Please authenticate.' });
+    }
+}

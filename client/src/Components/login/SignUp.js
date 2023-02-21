@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 
 function SignUp() {
     // const history = useHistory();
+    const [error, setError] = useState("");
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -21,7 +22,7 @@ function SignUp() {
 
         const { name, email, password, cpassword } = user;
 
-        const res = await fetch("/register", {
+        const res = await fetch("/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,19 +31,27 @@ function SignUp() {
                 name, email, password, cpassword
             })
         })
-        localStorage.setItem("loggedInUser", JSON.stringify({ name: name }));
+
         const data = await res.json();
 
-        if (!data) {
+        if (res.status === 422 || !data) {
+            // setError("Fill your Credentials");
             window.alert('Invalid Registration');
             console.log("Invalid Registration");
-        } else {
+        }
+        else if (res.status === 423) {
+            setError("Password is not matching");
+            // window.alert("Password is not matching");
+        }
+        else {
             window.alert('Registration Sucessfull');
             console.log("Registration Sucessfull");
+            localStorage.setItem("loggedInUser", JSON.stringify({ username: name }));
             window.location.href = '/login';
             // history.push("/login")
         }
     }
+
 
     return (
         <div>
@@ -60,7 +69,8 @@ function SignUp() {
                                 <input type="password" className="menuInputItems" name="password" placeholder="Enter your password" value={user.password} onChange={handleInputs} />
 
                                 <input type="password" className="menuInputItems" name="cpassword" placeholder="Confirm your password" value={user.cpassword} onChange={handleInputs} />
-
+                                <br />
+                                {error && <div className='err_msg'>{error}</div>}
                                 <input className='logButton' type="submit" value="register" name='signup' onClick={postData} />
                             </div>
                             <div>

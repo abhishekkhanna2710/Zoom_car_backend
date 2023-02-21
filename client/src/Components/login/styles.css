@@ -174,7 +174,7 @@
 
 }
 
-.form-group input{
+.form-group input {
     color: #e0e0e0;
 }
 
@@ -183,4 +183,17 @@
     font-size: 18px;
     margin-left: 10%;
     font-weight: 600;
+}
+
+.err_msg {
+    margin: auto;
+    width: 200px;
+    background-color: #2e2d2d;
+    color: rgb(237, 237, 237);
+    text-align: center;
+    border: 1px rgb(226, 225, 225) solid;
+    margin-top: 20px;
+    font-size: 12px;
+  
+    padding: 1px;
 }
