@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const path = require("path");
+const cors = require('cors')
+
 
 
 require("./db/connection")
@@ -15,12 +16,17 @@ const User = require("./models/userSchema")
 // router file linked using middleware
 app.use(require("./router/auth"))
 
-//static files
-app.use(express.static(path.join(__dirname, '../../client/build')))
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
-});
+app.use(cors({
+    origin:["http://localhost:8000", "https://zoom_car_pros.onrender.com"]
+}))
+
+//static files
+// app.use(express.static(path.join(__dirname, '../../client/build')))
+
+// app.get('*', function (req, res) {
+//     res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+// });
 
 
 const port = process.env.PORT || 8000;
