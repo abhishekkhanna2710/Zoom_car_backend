@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require("path");
 
 
 require("./db/connection")
@@ -7,12 +8,20 @@ require("./db/connection")
 // store data in json
 app.use(express.json())
 
-
+// require("../../client/build")
 // schema
 const User = require("./models/userSchema")
 
 // router file linked using middleware
 app.use(require("./router/auth"))
+
+//static files
+app.use(express.static(path.join(__dirname, './client/build')))
+
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
+
 
 const port = process.env.PORT || 8000;
 
