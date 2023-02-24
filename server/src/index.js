@@ -17,9 +17,9 @@ const User = require("./models/userSchema")
 app.use(require("./router/auth"))
 
 
-app.use(cors({
-    origin:["http://localhost:8000", "https://zoom_car_pros.onrender.com"]
-}))
+// app.use(cors({
+//     origin:["http://localhost:8000", "https://zoom_car_pros.onrender.com"]
+// }))
 
 //static files
 // app.use(express.static(path.join(__dirname, '../../client/build')))
