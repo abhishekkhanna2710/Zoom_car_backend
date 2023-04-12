@@ -2,8 +2,10 @@
 
 
 # Developed a Dynamic Zoom Car Pro Website with MERN Stack to Provide Efficient Car Rental Services to Customers
-Properto is the ultimately Backend project which I used Technologies like React-Refine, Node JS, Express, Typescript, Cloudinary, MongoDB Atlas, Material UI.
-Basically it performs complex CRUD operations for property Management.
+ Zoom Car Pro website is a comprehensive car rental platform that provides a seamless and user-friendly experience to customers.It offers a dynamic interface with advanced features such as real-time booking, vehicle tracking, and payment gateway integration. Built with a scalable and secure architecture, the website ensures reliable performance and efficient data management.
+ 
+ <h3>Tech Stack</h3>
+ MongoDB, Express.js, React.js, and Node.js
 
 <h2>This is my Individual Project</h2>
 
