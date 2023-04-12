@@ -16,20 +16,20 @@ function Bookcar() {
 
 
     const getData = async () => {
-        // let url = (`https://car-api3-0.onrender.com/carData`)
-        // let res = await fetch(url);
-        // let car_data = await res.json();
-        // console.log(car_data);
-        // setData(car_data);
-        // setIsLoading(false);
-        try {
-            let res = await axios.get('/BookingCars');
-            console.log(res.data)
-            setData(res.data);
-            setIsLoading(false);
-        } catch (error) {
-            console.log(error);
-        }
+        let url = (`https://long-plum-codfish-boot.cyclic.app/`)
+        let res = await fetch(url);
+        let car_data = await res.json();
+        console.log(car_data);
+        setData(car_data);
+        setIsLoading(false);
+        // try {
+        //     let res = await axios.get('/BookingCars');
+        //     console.log(res.data)
+        //     setData(res.data);
+        //     setIsLoading(false);
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
 
     const handleFilteredData = (data) => {
