@@ -24,4 +24,4 @@ The Website Link: https://zoomcarr.netlify.app/ <br/><br/>
   <ins>The Experience of Zoom Car Pro :</ins> <br/><br/>
    <h2>Landing Page</h2>
    
-![Screenshot 2023-04-13 000906](https://user-images.githubusercontent.com/113687128/231553864-93cdb618-98b1-4710-a2cd-5653cc36a139.png)
+![Screenshot 2023-04-13 000906](https://user-images.githubusercontent.com/113687128/231553864-93cdb618-98b1-4710-a2cd-5653cc36a139.png) 
