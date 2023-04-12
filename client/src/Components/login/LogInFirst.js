@@ -12,7 +12,7 @@ function LogInFirst() {
 
     useEffect(() => {
         const getUsername = async () => {
-            const response = await fetch('/login', {
+            const response = await fetch('https://cerise-llama-tux.cyclic.app/login', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ function LogInFirst() {
         console.log("first")
         e.preventDefault();
 
-        const res = await fetch('/login', {
+        const res = await fetch('https://cerise-llama-tux.cyclic.app/login', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -52,14 +52,14 @@ function LogInFirst() {
         if (res.status === 400 || !data) {
             window.alert("Invalid credentails");
         }
-       
+
 
         else if (res.status === 402) {
             setError("User Not found");
         }
 
         else {
-            window.alert('Registration Sucessfull');
+            window.alert('LoggedIn Sucessfully');
 
             // localStorage.setItem("loggedInUser", JSON.stringify({ name: "Abhishek" }));
             window.location.href = '/';

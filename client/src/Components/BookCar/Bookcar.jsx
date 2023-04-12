@@ -23,7 +23,7 @@ function Bookcar() {
         // setData(car_data);
         // setIsLoading(false);
         try {
-            let res = await axios.get('/BookingCars');
+            let res = await axios.get('https://cerise-llama-tux.cyclic.app/BookingCars');
             console.log(res.data)
             setData(res.data);
             setIsLoading(false);

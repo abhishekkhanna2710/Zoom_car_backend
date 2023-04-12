@@ -20,9 +20,10 @@ function SignUp() {
     const postData = async (e) => {
         e.preventDefault();
 
+
         const { name, email, password, cpassword } = user;
 
-        const res = await fetch("/signup", {
+        const res = await fetch("https://cerise-llama-tux.cyclic.app/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -46,7 +47,9 @@ function SignUp() {
         else {
             window.alert('Registration Sucessfull');
             console.log("Registration Sucessfull");
+
             localStorage.setItem("loggedInUser", JSON.stringify({ username: name }));
+            // localStorage.setItem("UserID", JSON.stringify({ id: id }));
             window.location.href = '/login';
             // history.push("/login")
         }

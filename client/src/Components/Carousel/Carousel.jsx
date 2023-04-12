@@ -13,7 +13,7 @@ function Carousel() {
         if (loggedInUser) {
             navigate("/BookingCars");
         } else {
-            alert('Please log in to book a car.');
+            alert('Please login to book your car.');
             navigate("/login");
         }
     };
