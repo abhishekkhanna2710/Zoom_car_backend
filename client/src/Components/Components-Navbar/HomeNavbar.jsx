@@ -10,6 +10,7 @@ function HomeNavbar() {
 
     const logoutt = () => {
         localStorage.removeItem("loggedInUser");
+        window.location.reload();
         setLogoutClicked(true);
     }
     return (
