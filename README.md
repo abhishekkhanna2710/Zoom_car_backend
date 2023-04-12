@@ -28,8 +28,19 @@ The Website Link: https://zoomcarr.netlify.app/ <br/><br/>
 
   <h2>Login Page</h2>
   
-![Screenshot 2023-04-13 001337](https://user-images.githubusercontent.com/113687128/231554842-13bf6c5f-4e9c-4342-84a4-c2d820c7b329.png)
+  ![Screenshot 2023-04-13 001337](https://user-images.githubusercontent.com/113687128/231554842-13bf6c5f-4e9c-4342-84a4-c2d820c7b329.png)
 
 <h2>Car Booking Page</h2>
 
+![Screenshot 2023-04-13 001539](https://user-images.githubusercontent.com/113687128/231555441-24d778d6-9534-41d1-b681-557da3e9b331.png)
 
+<h2>Payment Details Section</h2>
+
+![Screenshot 2023-04-13 001730](https://user-images.githubusercontent.com/113687128/231555901-0f5f5b24-fdfc-4fe4-8f73-12b0578d6057.png)
+
+<h2>Checkoyt Page</h2>
+
+![Screenshot 2023-04-13 001757](https://user-images.githubusercontent.com/113687128/231555996-2013729e-c8d0-4ebf-a4db-bbbe76ffe0d2.png)
+
+
+<h1>Thann You, Great Experience</h1>
