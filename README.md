@@ -17,8 +17,8 @@ The Website Link: https://zoomcarr.netlify.app/ <br/><br/>
    <li>Login & Signup Page</li>
    <li>Responsive Beautifull User UI</li>
    <li>Car Booking page</li>
-   <li>Rental Car Section</li>
-   <li>Payment Checkout Section</li>
+   <li>Payment Car Section</li>
+   <li>Checkout Section</li>
  </ul>
   
   <ins>The Experience of Zoom Car Pro :</ins> <br/>
@@ -38,7 +38,7 @@ The Website Link: https://zoomcarr.netlify.app/ <br/><br/>
 
 ![Screenshot 2023-04-13 001730](https://user-images.githubusercontent.com/113687128/231555901-0f5f5b24-fdfc-4fe4-8f73-12b0578d6057.png)
 
-<h2>Checkoyt Page</h2>
+<h2>Checkout Page</h2>
 
 ![Screenshot 2023-04-13 001757](https://user-images.githubusercontent.com/113687128/231555996-2013729e-c8d0-4ebf-a4db-bbbe76ffe0d2.png)
 
